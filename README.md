@@ -27,7 +27,7 @@ A sleek and user-friendly QR code generator built with Flask and modern web tech
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/yourusername/qrcraft.git
+git clone https://github.com/RONEW2J/QRCraft.git
 cd qrcraft
 ```
 
