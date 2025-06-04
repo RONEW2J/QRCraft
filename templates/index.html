@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">QR</div>
+        <h1>QR Code Generator</h1>
+        <p class="subtitle">Create beautiful QR codes instantly</p>
+
+        <form id="qrForm">
+            <div class="input-group">
+                <label for="data">Text or URL to encode:</label>
+                <textarea id="data" name="data" placeholder="Enter text, URL, or any data you want to encode..." required></textarea>
+            </div>
+
+            <div class="options-grid">
+                <div class="input-group">
+                    <label for="fill_color">Fill Color:</label>
+                    <div class="color-input">
+                        <input type="color" id="fill_color" name="fill_color" value="#000000">
+                        <span>Black</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="back_color">Background Color:</label>
+                    <div class="color-input">
+                        <input type="color" id="back_color" name="back_color" value="#ffffff">
+                        <span>White</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options-grid">
+                <div class="input-group">
+                    <label for="box_size">Box Size:</label>
+                    <select id="box_size" name="box_size">
+                        <option value="8">Small (8px)</option>
+                        <option value="10" selected>Medium (10px)</option>
+                        <option value="12">Large (12px)</option>
+                        <option value="15">Extra Large (15px)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="border">Border Size:</label>
+                    <select id="border" name="border">
+                        <option value="2">Thin (2px)</option>
+                        <option value="4" selected>Normal (4px)</option>
+                        <option value="6">Thick (6px)</option>
+                        <option value="8">Extra Thick (8px)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="generate-btn" id="generateBtn">Generate QR Code</button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Generating your QR code...</p>
+        </div>
+
+        <div class="error" id="error">
+            <p id="errorMessage"></p>
+        </div>
+
+        <div class="success" id="success">
+            <p id="successMessage"></p>
+        </div>
+
+        <div class="result-section" id="result">
+            <h3>Your QR Code is Ready!</h3>
+            <div class="qr-preview" id="qrPreview">
+                <!-- QR code will be displayed here -->
+            </div>
+            <div>
+                <a href="#" class="download-btn" id="downloadBtn" download="qr_code.png">
+                    📥 Download QR Code
+                </a>
+                <button type="button" class="download-btn" id="generateAnother" onclick="resetForm()">
+                    🔄 Generate Another
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
